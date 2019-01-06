@@ -1,15 +1,43 @@
-//MotorDriver Constructor
+//Include arduino base library
+#include "Arduino.h"
 
-//set power
+//Make sure nothing bad happens if inserted more than once
+#ifndef MotorDriver_h
+#define MotorDriver_h
 
-//set direction
+//Define all motordriver and encoder pins
+#define dir_RF A2
+#define dir_LF A1
+#define dir_RB A3
+#define dir_LB A0
+#define pwm_LF 3
+#define pwm_RF 6
+#define pwm_LB 4
+#define pwm_RB 5
+//#define encoder_LF A6
+//#define encoder_RF A7
+//#define encoder_LB A2
+//#define encoder_RB A3
 
-//increment speed
+//WIP
+class MotorDriver
+{
+  public: //All Functions in MotorDriver Class
+    MotorDriver();//MotorDriver Constructor
+    void initMotors();
+    void SetDirection(int Dir, int DirPin);//set direction
+    void SetPower(int Pwm,int PwmPin);//set power
+    void SetR_MPower(int All_Pwm);
+    void SetR_Direction(int Dir);
+    void SetL_Direction(int Dir);
+    void SetL_MPower(int L_Pwm);
+    //increment speed
+    //decrement speed
+    //calculate speed to give motor
+    //check speed is occuring
+    //On-off switch control aka reset
+  private:
+    int Pwm_Chkd;
+};
 
-//decrement speed
-
-//calculate speed to give motor
-
-//check speed is occuring
-
-//On-off switch control aka reset
+#endif
